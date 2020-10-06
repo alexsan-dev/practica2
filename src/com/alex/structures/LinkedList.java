@@ -8,6 +8,9 @@ public class LinkedList<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     Node<T> firstNode;
 
+    /**
+     * @param item
+     */
     // AGREGAR
     @SuppressWarnings("unchecked")
     public void add(Object item) {
@@ -17,7 +20,7 @@ public class LinkedList<T> implements Serializable {
             // CREAR PRIMERO
             firstNode = new Node<>((T) item);
 
-            // SINO RECORRER
+        // SINO RECORRER
         else {
             // NODO BASE
             Node<T> auxNode = firstNode;
@@ -34,12 +37,20 @@ public class LinkedList<T> implements Serializable {
         this.index++;
     }
 
-    public LinkedList<T> clone(){
+    /**
+     * @return LinkedList<T>
+     */
+    public LinkedList<T> clone() {
         LinkedList<T> out = new LinkedList<>();
-        for(int index = 0; index < getSize();index++) out.add(get(index));
+        for (int index = 0; index < getSize(); index++)
+            out.add(get(index));
         return out;
     }
 
+    /**
+     * @param item
+     * @return Node<T>
+     */
     // BUSCAR NODO
     public Node<T> find(Object item) {
         // NODO BASE
@@ -53,6 +64,10 @@ public class LinkedList<T> implements Serializable {
         return auxNode;
     }
 
+    /**
+     * @param item
+     * @param newItem
+     */
     // REMPLAZAR NODO
     @SuppressWarnings("unchecked")
     public void replace(Object item, Object newItem) {
@@ -63,6 +78,10 @@ public class LinkedList<T> implements Serializable {
         auxNode.value = (T) newItem;
     }
 
+    /**
+     * @param item
+     * @return int
+     */
     // OBTENER POSICIÓN
     public int getIndex(Object item) {
         // NODO BASE
@@ -79,6 +98,9 @@ public class LinkedList<T> implements Serializable {
         return out;
     }
 
+    /**
+     * @param e
+     */
     // BORRAR NODO
     public void delete(Object e) {
         // NODO BASE
@@ -88,7 +110,7 @@ public class LinkedList<T> implements Serializable {
         if (getIndex(e) == 0)
             firstNode = firstNode.next;
 
-            // SINO ES EL ULTIMO
+        // SINO ES EL ULTIMO
         else if (getIndex(e) != this.index - 1) {
             // RECORRER HASTA EL INDICE
             for (int i = 0; i < this.index - 1; i++) {
@@ -121,6 +143,9 @@ public class LinkedList<T> implements Serializable {
         this.index--;
     }
 
+    /**
+     * @return T
+     */
     // ELIMINAR EL ULTIMO
     public T pop() {
         // NODO BASE
@@ -138,6 +163,9 @@ public class LinkedList<T> implements Serializable {
         return null;
     }
 
+    /**
+     * @return T
+     */
     // OBTENER EL ULTIMO
     public T peek() {
         // NODO BASE
@@ -154,25 +182,40 @@ public class LinkedList<T> implements Serializable {
         return auxNode.value;
     }
 
+    /**
+     * @return String[]
+     */
     // ARRAY
     @SuppressWarnings("unchecked")
-    public String[] toArray(){
+    public String[] toArray() {
         String[] tmpArry = new String[getSize()];
-        for(int index = 0; index < getSize(); index++) tmpArry[index] = (String) get(index);
+        for (int index = 0; index < getSize(); index++)
+            tmpArry[index] = (String) get(index);
         return tmpArry;
     }
 
-    public int[] toIntArray(){
+    /**
+     * @return int[]
+     */
+    public int[] toIntArray() {
         int[] tmpArry = new int[getSize()];
-        for(int index = 0; index < getSize(); index++) tmpArry[index] = Integer.parseInt((String) get(index));
+        for (int index = 0; index < getSize(); index++)
+            tmpArry[index] = Integer.parseInt((String) get(index));
         return tmpArry;
     }
 
+    /**
+     * @return int
+     */
     // OBTENER DIMENSION
     public int getSize() {
         return this.index;
     }
 
+    /**
+     * @param index
+     * @return T
+     */
     // OBTENER NODO
     public T get(int index) {
         // AGREGAR LIMITES

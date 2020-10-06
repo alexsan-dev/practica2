@@ -9,6 +9,11 @@ public class XFrame extends JFrame implements XFrameModel {
     private static final long serialVersionUID = 1L;
     JPanel content;
 
+    /**
+     * @param name
+     * @param width
+     * @param height
+     */
     public void setFrame(String name, int width, int height) {
         // AGREGAR ICONO Y COLOR
         Image icon = Toolkit.getDefaultToolkit().getImage("./src/images/icon.png");
@@ -16,12 +21,12 @@ public class XFrame extends JFrame implements XFrameModel {
         // PANEL PRINCIPAL
         content = new JPanel(null);
         content.setBackground(new Color(220, 220, 220));
-        content.setBounds(0,0,width, height);
+        content.setBounds(0, 0, width, height);
 
         setIconImage(icon);
         setLayout(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(0,0,width, height);
+        setBounds(0, 0, width, height);
 
         // AGREGAR DIMENSIONES
         setResizable(false);
@@ -37,9 +42,17 @@ public class XFrame extends JFrame implements XFrameModel {
         add(content);
     }
 
+    /**
+     * @param comp
+     */
     @Override
-    public void renderWithin() {}
+    public void renderWithin() {
+    }
 
+    /**
+     * @param comp
+     * @return Component
+     */
     public Component addComp(Component comp) {
         content.add(comp);
         return content;

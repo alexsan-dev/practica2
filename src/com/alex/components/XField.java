@@ -7,10 +7,15 @@ public class XField extends JPanel {
     public JTextField field;
     public XLabel label;
 
-    public XField(String text, int width){
+    /**
+     * @param text
+     * @param width
+     * @return
+     */
+    public XField(String text, int width) {
         setBackground(new Color(220, 220, 220));
         setLayout(null);
-        setSize(width,90);
+        setSize(width, 90);
 
         // COMPONENTES
         field = new XInput();
@@ -20,10 +25,17 @@ public class XField extends JPanel {
         setComponents();
     }
 
-    public XField(String text, int width, String initialValue, boolean editable){
+    /**
+     * @param text
+     * @param width
+     * @param initialValue
+     * @param editable
+     * @return
+     */
+    public XField(String text, int width, String initialValue, boolean editable) {
         setBackground(new Color(220, 220, 220));
         setLayout(null);
-        setSize(width,90);
+        setSize(width, 90);
 
         // COMPONENTES
         field = new XInput();
@@ -37,21 +49,27 @@ public class XField extends JPanel {
         setComponents();
     }
 
-    public void setComponents(){
+    public void setComponents() {
         // PROPIEDADES
         label.setBounds(25, 0, getWidth() - 50, 40);
-        field.setBounds(25, 40,  getWidth() - 50, 50);
+        field.setBounds(25, 40, getWidth() - 50, 50);
 
         // AGREGAR
         add(label);
         add(field);
     }
 
-    public void setText(String text){
+    /**
+     * @param text
+     */
+    public void setText(String text) {
         field.setText(text);
     }
 
-    public String getData(){
+    /**
+     * @return String
+     */
+    public String getData() {
         return field.getText();
     }
 }

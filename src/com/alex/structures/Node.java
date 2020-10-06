@@ -10,6 +10,10 @@ public class Node<T> implements Serializable {
     Node<T> next;
     T value;
 
+    /**
+     * @param item
+     * @return
+     */
     // VALORES SIMPLES
     public Node(T item) {
         this.value = item;
